@@ -1,13 +1,11 @@
 $(document).ready(function(){
     $("#start-button").click(function(){
   // ----------------------------------------------------------------
-   // declaring the value for the timer to 60 seconds
-   // hide the start button and rules
-        var number = 50;
-        alert("The let game begin!");
-      $("#start-button").on("click", start);  // starts the games 
-      $("#submit").on("click", finish);  // submits answers and finishes the game
-      $("#restart").on("click", restart);  // restarts the games 
+   
+        var number = 105;
+      $("#start-button").on("click", start);   
+      $("#submit").on("click", finish);  
+      $("#restart").on("click", restart);   
   // ----------------------------------------------------------------
   // functions
       function start(){
@@ -17,33 +15,33 @@ $(document).ready(function(){
           showMe("#submit");
           hideMe("#start-button");
           hideMe(".rules");
-          hideMe("#restart");
-          hideMe("#results");
+          showMe("#restart");
+          showMe("#results");
       }
       function timer(){
-        number-- // decrements the timer by 1
+        number-- // 
         $("#show-number").html("<h2>" + number + "</h2>" );
         if (number === 0){
-          alert("Times Up!")
-          stop(); // calls the stop function
+          
+          stop(); 
         }
       }
       function stop(){
-          clearInterval(counter); // stops the timer
+          clearInterval(counter); 
           $("#results").show();
           $("#restart").show();
           $(".question").hide();
           $(".answers").hide();
-          $("#submit").hide();
+          $("#submit").show();
       }
       function finish(){
-          number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
-          clearInterval(counter); // stops the timer
+          number = 1; 
+          clearInterval(counter); 
           timer();
       }
   
       function restart(){
-          number = 50;
+          number = 105;
           start();
       }
   
@@ -54,10 +52,9 @@ $(document).ready(function(){
           $(e).show();
       }
   
-  // ----------------------------------------------------------------
-  //calling functions
-        start(); // calls the start function
-    });
+ 
+        start(); 
   });
   
   
+})
